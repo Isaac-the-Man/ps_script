@@ -37,3 +37,4 @@ function Enter-Academic {
 # custom aliases
 New-Alias -Name "back" Exit-CurrentDir
 New-Alias -Name "study" Enter-Academic
+New-Alias -Name "pie" Connect-RasbperryPi
