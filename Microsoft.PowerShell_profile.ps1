@@ -12,6 +12,10 @@ Class AcademicSubjects: System.Management.Automation.IValidateSetValuesGenerator
 }
 
 # custom functions
+function Enter-PowershellProfile {
+    # cd to location of powershell profile
+    Set-Location -Path "C:/Users/$ENV:USERNAME/Documents/PowerShell"
+}
 function Exit-CurrentDir {
     # cd to the parent directory
     Set-Location -Path ".."
