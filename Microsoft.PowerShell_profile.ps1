@@ -12,6 +12,10 @@ Class AcademicSubjects: System.Management.Automation.IValidateSetValuesGenerator
 }
 
 # custom functions
+function Enter-Projects {
+    # cd to project folder
+    Set-Location -Path "C:/Users/$ENV:USERNAME/Desktop/projects/"
+}
 function Enter-PowershellProfile {
     # cd to location of powershell profile
     Set-Location -Path "C:/Users/$ENV:USERNAME/Documents/PowerShell"
@@ -34,11 +38,12 @@ function Enter-Academic {
         [string]
         $subject
     )
-    Set-Location -Path "C:\Users\$ENV:USERNAME\Desktop\rpi\$subject" &&
+    Set-Location -Path "C:/Users/$ENV:USERNAME/Desktop/rpi/$subject" &&
     Get-ChildItem
 }
 
 # custom aliases
 New-Alias -Name "back" Exit-CurrentDir
 New-Alias -Name "study" Enter-Academic
+New-Alias -Name "projects" Enter-Projects
 New-Alias -Name "pie" Connect-RasbperryPi
