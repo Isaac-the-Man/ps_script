@@ -12,6 +12,24 @@ Class AcademicSubjects: System.Management.Automation.IValidateSetValuesGenerator
 }
 
 # custom functions
+function Get-GitStatus {
+    # git status
+    git status
+}
+function Add-GitCommit {
+    # git commit
+    param(
+        [string]
+        $message
+    )
+    git commit -m "$message"
+}
+function Add-GitStaging {
+    # git add
+    param($files)
+    git add $files
+    git status
+}
 function Enter-Projects {
     # cd to project folder
     Set-Location -Path "C:/Users/$ENV:USERNAME/Desktop/projects/"
@@ -47,3 +65,6 @@ New-Alias -Name "back" Exit-CurrentDir
 New-Alias -Name "study" Enter-Academic
 New-Alias -Name "projects" Enter-Projects
 New-Alias -Name "pie" Connect-RasbperryPi
+New-Alias -Name "gadd" Add-GitStaging
+New-Alias -Name "gcommit" Add-GitCommit
+New-Alias -Name "gstatus" Get-GitStatus
